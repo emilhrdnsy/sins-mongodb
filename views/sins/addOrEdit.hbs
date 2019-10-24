@@ -1,0 +1,29 @@
+<h3>{{viewTitle}}</h3>
+
+<form action="/sins" method="POST" autocomplete="off">
+<input type="hidden" name="_id" value="{{sins._id}}">
+    <div class="form-group">
+        <label>Nomor Surat</label>
+        <input type="text" class="form-control" name="nomor_surat" value="{{sins.nomor_surat}}">
+    </div>
+    <div class="form-group">
+        <label>Alamat Penerima</label>
+        <input type="text" class="form-control" name="alamat_penerima" placeholder="Alamat Penerima" value="{{sins.alamat_penerima}}" >
+        <div class="text-danger">
+            {{sins.alamatPenerimaError}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Tanggal</label>
+        <input type="date" class="form-control" name="tanggal" value="{{sins.tanggal}}">
+    </div>
+    <div class="form-group">
+        <label>Perihal</label>
+        <input type="text" class="form-control" name="perihal" placeholder="Perihal" value="{{sins.perihal}}">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fas fa-database"></i> Submit</button>
+        <a class="btn btn-secondary" href="/sins/list"><i class="fa fa-list-alt"></i> Lihat Daftar</a>
+        <a class="btn btn-secondary" target='_blank' href="/sins/print"><i class="fas fa-print"></i> Cetak</a>
+    </div>
+</form>

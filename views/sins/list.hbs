@@ -1,0 +1,27 @@
+<h3><a class="btn btn-secondary" href="/sins"><i class="fa fa-plus"></i> Tambah Data</a> Daftar Nomor Surat</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nomor Surat</th>
+            <th>Alamat Penerima</th>
+            <th>Tanggal</th>
+            <th>Perihal</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.nomor_surat}}</td>
+            <td>{{this.alamat_penerima}}</td>
+            <td>{{this.tanggal}}</td>
+            <td>{{this.perihal}}</td>
+            <td>
+                <a href="/sins/edit/{{this._id}}"><i class="fa fa-pencil-alt fa-lg" aria-hidden="true"></i></a>
+                <a href="/sins/delete/{{this._id}}" onclick="return confirm('Yakin ingin menghapus?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr> 
+        {{/each}}
+    </tbody>
+</table>
+<a class="btn btn-secondary" target='_blank' href="/sins/print"><i class="fas fa-print"></i> Cetak</a>
