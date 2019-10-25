@@ -14,7 +14,7 @@
         <tr>
             <td>{{this.nomor_surat}}</td>
             <td>{{this.alamat_penerima}}</td>
-            <td>{{this.tanggal}}</td>
+            <td>{{moment(this.tanggal).format("YYYY-MM-DD")}}</td>
             <td>{{this.perihal}}</td>
             <td>
                 <a href="/sins/edit/{{this._id}}"><i class="fa fa-pencil-alt fa-lg" aria-hidden="true"></i></a>

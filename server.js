@@ -2,8 +2,10 @@ require('./models/db');
 
 const express = require('express');
 const path = require('path');
-const exphbs = require('express-handlebars');
+const Handlebars = require('express-handlebars');
 const bodyparser = require('body-parser');
+var moment = require('moment');
+var MomentHandler = require("handlebars.moment");
 
 const sinsController = require('./controllers/sinsController');
 
@@ -14,7 +16,13 @@ app.use(bodyparser.urlencoded({
 
 app.use(bodyparser.json());
 app.set('views', path.join(__dirname, '/views/'));
-app.engine('hbs', exphbs({ extname: 'hbs', defaultLayout:   'mainLayout', layoutDir: __dirname + '/views/layouts/' }));
+app.engine('hbs', Handlebars({ 
+    extname: 'hbs', 
+    defaultLayout:   'mainLayout',
+    formatDate: function(date, format) {
+        return moment(date).format(format)
+    },
+    layoutDir: __dirname + '/views/layouts/' }));
 app.set('view engine', 'hbs');
 
 app.listen(3000, () => {

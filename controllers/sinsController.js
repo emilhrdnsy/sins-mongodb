@@ -2,10 +2,7 @@ const express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
 const Sinus = mongoose.model('Sins');
-
-//var sains = new Sinus();
-
-
+var moment = require('moment');
 
 router.get('/', async (req,res, next) => {
     try {
@@ -15,7 +12,8 @@ router.get('/', async (req,res, next) => {
             viewTitle : "Tambah Nomor Surat",
             sins: {
                 nomor_surat: lastData[0].nomor_surat + 1
-            }
+            },
+            moment: moment
         });
     } catch (error) {
         return next(error)
