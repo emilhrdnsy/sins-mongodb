@@ -2,7 +2,9 @@ const express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
 const Sinus = mongoose.model('Sins');
-var moment = require('moment');
+const moment = require('moment')
+require('moment/locale/id')
+moment.locale('id')
 
 router.get('/', async (req,res, next) => {
     try {
@@ -99,14 +101,27 @@ router.post('/edit', async (req, res, next) => {
 
 router.get('/list', (req, res) => { 
     Sinus.find((err, docs) => {
-        if (!err) {
-            res.render("sins/list", {
-                list: docs
-            });
-        }
-        else {
-            console.log('Error in retrieving sins list: '+ err)
-        }
+        let payload = []
+        docs.map(item => {
+            const { _id, nomor_surat, alamat_penerima, tanggal, perihal, __v } = item
+            const onePayload = {
+                _id, 
+                nomor_surat, 
+                alamat_penerima, 
+                tanggal: moment(tanggal).format('llll'), 
+                perihal, 
+                __v
+            }
+            payload.push(onePayload)
+        })
+            if (!err) {
+                res.render("sins/list", {
+                    list: payload
+                });
+            }
+            else {
+                console.log('Error in retrieving sins list: '+ err)
+            }
     })
 }); 
 

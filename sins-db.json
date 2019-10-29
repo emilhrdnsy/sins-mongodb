@@ -1,0 +1,5 @@
+{"_id":{"$oid":"5d74beebe149461cd4637cdf"},"nomor_surat":{"$numberInt":"127"},"alamat_penerima":"emilhard","tanggal":null,"perihal":"surat","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5db2689b8af2ff12c409740d"},"nomor_surat":{"$numberInt":"128"},"alamat_penerima":"","tanggal":{"$date":{"$numberLong":"1572048000000"}},"perihal":"","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5db28e2f69d1872724640f63"},"nomor_surat":{"$numberInt":"129"},"alamat_penerima":"","tanggal":null,"perihal":"","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5db28f82ddcaca26dcae7efd"},"nomor_surat":{"$numberInt":"130"},"alamat_penerima":"qwe","tanggal":{"$date":{"$numberLong":"1572048000000"}},"perihal":"","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5db299aabeccae2748b40194"},"nomor_surat":{"$numberInt":"131"},"alamat_penerima":"wew","tanggal":{"$date":{"$numberLong":"1393804800000"}},"perihal":"wew","__v":{"$numberInt":"0"}}
