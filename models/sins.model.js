@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 var sinsSchema = new mongoose.Schema({
     nomor_surat: {
-        type: Number,
+        type: Number    ,
         required: 'Field harus diisi.'
     },
     alamat_penerima: {

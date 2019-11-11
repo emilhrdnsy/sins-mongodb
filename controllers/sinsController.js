@@ -80,25 +80,7 @@ router.post('/edit', async (req, res, next) => {
         return next(error)
     }
 })
-
-// function updateRecord(req,res){
-//     Sinus.findOneAndUpdate({ _id: req.body._id}, req.body, { new: true }, (err, doc) => {
-//         if(!err) { res.redirect('sins/list'); }
-//         else {
-//             if(err.name == 'ValidationError') {
-//                 handleValidationError(err, req.body);
-//                 res.render("sins/addOrEdit", {
-//                     viewTitle: 'Edit Data',
-//                     sins: req.body
-//                 });
-//             }
-//             else {
-//                 console.log('Error during record update: ' + err);
-//             }
-//         }
-//     });
-// }
-
+    
 router.get('/list', (req, res) => { 
     Sinus.find((err, docs) => {
         let payload = []
