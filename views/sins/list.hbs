@@ -2,17 +2,17 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Nomor Surat</th>
-            <th>Alamat Penerima</th>
-            <th>Tanggal</th>
-            <th>Perihal</th>
-            <th></th>
+            <th width=150><center>Nomor Surat</center></th>
+            <th><center>Alamat Penerima</center></th>
+            <th><center>Tanggal</center></th>
+            <th><center>Perihal</center></th>
+            <th width="70"></th>
         </tr>
     </thead>
     <tbody>
         {{#each list}}
         <tr>
-            <td>{{this.nomor_surat}}</td>
+          <td><center>{{this.nomor_surat}}</center></td>
             <td>{{this.alamat_penerima}}</td>
             <td>{{this.tanggal}}</td>
             <td>{{this.perihal}}</td>
@@ -20,7 +20,7 @@
                 <a href="/sins/edit/{{this._id}}"><i class="fa fa-pencil-alt fa-lg" aria-hidden="true"></i></a>
                 <a href="/sins/delete/{{this._id}}" onclick="return confirm('Yakin ingin menghapus?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
             </td>
-        </tr> 
+        </tr>
         {{/each}}
     </tbody>
 </table>

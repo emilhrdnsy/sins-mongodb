@@ -32,16 +32,21 @@ router.post('/', async (req, res, next) => {
             tanggal,
             perihal
         } = req.body
-        
-        const ref = await Sinus.create({
-            nomor_surat,
-            alamat_penerima,
-            tanggal,
-            perihal
-        }, 
-        function (err, doc) {
-            res.redirect('sins/list');
-        });
+
+        if (alamat_penerima!=="" || perihal!==""){
+
+          const ref = await Sinus.create({
+              nomor_surat,
+              alamat_penerima,
+              tanggal,
+              perihal
+          },
+          function (err, doc) {
+              res.redirect('sins/list');
+          })
+        }else{
+          res.redirect('/sins');
+        };
     } catch (error) {
         return next(error)
     }}
@@ -67,7 +72,7 @@ router.get('/edit/:id', async (req, res, next) => {
 
 router.post('/edit', async (req, res, next) => {
     try {
-        const { 
+        const {
             nomor_surat,
             alamat_penerima,
             tanggal,
@@ -76,22 +81,23 @@ router.post('/edit', async (req, res, next) => {
 
         const ref = await Sinus.updateOne({ nomor_surat }, { $set: { alamat_penerima, tanggal, perihal } })
         res.redirect('/sins/list')
+
     } catch(error) {
         return next(error)
     }
 })
-    
-router.get('/list', (req, res) => { 
+
+router.get('/list', (req, res) => {
     Sinus.find((err, docs) => {
         let payload = []
         docs.map(item => {
             const { _id, nomor_surat, alamat_penerima, tanggal, perihal, __v } = item
             const onePayload = {
-                _id, 
-                nomor_surat, 
-                alamat_penerima, 
-                tanggal: moment(tanggal).format('llll'), 
-                perihal, 
+                _id,
+                nomor_surat,
+                alamat_penerima,
+                tanggal: moment(tanggal).format('llll'),
+                perihal,
                 __v
             }
             payload.push(onePayload)
@@ -105,7 +111,7 @@ router.get('/list', (req, res) => {
                 console.log('Error in retrieving sins list: '+ err)
             }
     })
-}); 
+});
 
 router.get('/print', (req, res) => {
     Sinus.find((err, docs) => {
